@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 var DB *sql.DB
@@ -12,7 +12,7 @@ var DB *sql.DB
 func InitDB() {
 	var err error
 
-	DB, err = sql.Open("sqlite3", "./data/foodstore.db")
+	DB, err = sql.Open("sqlite", "./data/foodstore.db")
 	if err != nil {
 		panic(err)
 	}
@@ -24,12 +24,12 @@ func InitDB() {
 			price REAL,
 			quantity INTEGER,
 			category TEXT,
-			expiry_date TEXT
-		);
+			expiry TEXT
+		)
 	`)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println("✅ SQLite ready - Asylkhan")
+	fmt.Println("SQLite initialized")
 }

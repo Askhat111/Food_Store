@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "foodstore/internal/db"
 
 func main() {
-	fmt.Println("Food Store Management - Askhat")
+	db.InitDB()
 }
